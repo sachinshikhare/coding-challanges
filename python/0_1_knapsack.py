@@ -1,4 +1,5 @@
 def calculate_knapsack(max_wt, wts, values, n):
+    print(n)
     if max_wt == 0 or n == 0:
         return 0
     if wts[-1] > max_wt:
