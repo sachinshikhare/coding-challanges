@@ -28,15 +28,17 @@ def getStringForTwoDigitNumber(input):
     return multiplesOfTen[int(input[0])] + " " + oneToNine[int(input[1])]
 
 def getStringForThreeDigitNumber(input):
-    input = int(input)
-    if input < 10:
-        return getStringForSignelDigitNumber(input)
-    if input < 100:
-        return getStringForTwoDigitNumber(input)
-    input = str(input)
-    secondPart = str(int(input[1:]))
+    input = str(int(input))
+    firstPartString  = ""
+    secondPartString =""
+    if len(input) == 3:
+        firstPartString = oneToNine[int(input[0])] + " hundred "
+        secondPart = str(int(input[1:]))
+    else:
+        secondPart = str(int(input))
+
     secondPartString = getStringForSignelDigitNumber(secondPart) if int(secondPart) < 10 else getStringForTwoDigitNumber(secondPart)
-    return oneToNine[int(input[0])] + " hundred " + secondPartString
+    return firstPartString + secondPartString
 
 
 def convert(input):
@@ -52,7 +54,8 @@ def convert(input):
     exponentialsToUse = exponentials[len(partialOutputs)]
     result = ""
     for cntr in range(0, len(exponentialsToUse)):
-        result += partialOutputs[cntr] + exponentialsToUse[cntr]
+        if len(partialOutputs[cntr].strip()) != 0:
+            result += partialOutputs[cntr] + exponentialsToUse[cntr]
     return result
 
 
@@ -79,3 +82,4 @@ if __name__ == "__main__":
     print(convert("100,000"))
     print(convert("123,456"))
     print(convert("12,345,678"))
+    print(convert("123,000,678"))
