@@ -1,10 +1,22 @@
 
-arr1 = [1,0,0,0]
-arr2 = [[0,1],[0,0]]
-# print(any(arr1))
-# output = any([any(val == 1 for val in arr2)])
-output = any(any(i == 1 for i in arr) for arr in arr2)
-print(output)
+string = "123456789"
+if len(string) % 3 == 1:
+    arr = [string[0]]
+    arr.extend([string[i:i+3] for i in range(1, len(string), 3)])
+elif len(string) % 3 == 2:
+    arr = [string[0:2]]
+    arr.extend([string[i:i+3] for i in range(2, len(string), 3)])
+else:
+    arr = [string[i:i+3] for i in range(0, len(string), 3)]
+
+print(arr)
+
+# arr1 = [1,0,0,0]
+# arr2 = [[0,1],[0,0]]
+# # print(any(arr1))
+# # output = any([any(val == 1 for val in arr2)])
+# output = any(any(i == 1 for i in arr) for arr in arr2)
+# print(output)
 
 
 # import heapq

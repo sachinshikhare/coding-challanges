@@ -1,3 +1,5 @@
+package main.java;
+
 public class MatrixProduct {
 
     static int calculate(final int[][] arr, final int row, final int col, final int maxRow, final int maxCol, int product) {

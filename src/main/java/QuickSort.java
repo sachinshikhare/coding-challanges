@@ -1,4 +1,4 @@
-import java.util.Collections;
+package main.java;
 
 /**
  * COPIED

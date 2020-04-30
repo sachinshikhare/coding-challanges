@@ -1,3 +1,5 @@
+package main.java;
+
 public class ZeroMatrix {
 
     static void convert(int[][] matrix) {
